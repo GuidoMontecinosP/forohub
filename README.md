@@ -1,14 +1,14 @@
-Foro Hub
+#Foro Hub
 
-Descripción del Proyecto
+#Descripción del Proyecto
 
 Foro Hub es una aplicación de foro en línea diseñada para gestionar tópicos relacionados con diferentes cursos. Este sistema permite registrar, listar, actualizar y eliminar tópicos, con una capa de seguridad basada en Spring Security y JWT. Los datos se almacenan en una base de datos MySQL, y las migraciones se manejan mediante Flyway.
 
 Este proyecto forma parte del desafío final del programa de formación de Spring Boot del programa Oracle One de Alura LATAM. A través de este proyecto, se busca implementar una API REST con funcionalidades clave que cumplen con las mejores prácticas en desarrollo web backend.
 
-Características Principales
+#Características Principales
 
-Gestión de Tópicos
+#Gestión de Tópicos
 
 Registrar Tópicos: Crear nuevos tópicos con título, mensaje, autor y curso.
 Listar Tópicos: Obtener todos los tópicos registrados.
