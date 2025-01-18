@@ -47,7 +47,7 @@ Para ejecutar este proyecto necesitas tener instalado lo siguiente:
 
 Antes de ejecutar el proyecto, asegúrate de que tu base de datos MySQL esté configurada correctamente. Para este proyecto, el archivo `application.properties` se encuentra configurado de la siguiente forma:
 
-```properties
+```
 # Configuración de la base de datos
 spring.datasource.url=jdbc:mysql://localhost:3306/foro_hub
 spring.datasource.username=root
@@ -65,3 +65,93 @@ spring.flyway.locations=classpath:db/migration
 # Configuración de JWT
 jwt.secret=mySecretKey
 jwt.expiration=3600000
+```
+
+2. Migraciones
+Flyway aplicará automáticamente las migraciones necesarias para crear y mantener el esquema de la base de datos. Estas migraciones se encuentran en la carpeta src/main/resources/db/migration.
+
+
+3. Ejecutar el Proyecto
+Puedes ejecutar el proyecto desde la terminal con:
+
+```
+mvn spring-boot:run
+```
+Esto iniciará el servidor en http://localhost:8080.
+
+Endpoints Principales
+1. Crear Tópico
+Método: POST /topicos
+Body:
+
+```
+{
+  "titulo": "Nuevo Tópico",
+  "mensaje": "Este es un mensaje sobre un nuevo tópico.",
+  "autor": "usuario@ejemplo.com",
+  "curso": "Curso de Java"
+}
+```
+Respuesta: Detalles del tópico creado.
+
+2. Listar Tópicos
+Método: GET /topicos
+Respuesta: Lista de todos los tópicos registrados.
+3. Detalles de un Tópico
+Método: GET /topicos/{id}
+Respuesta: Información detallada de un tópico específico.
+4. Actualizar Tópico
+Método: PUT /topicos/{id}
+
+Body:
+```
+{
+  "titulo": "Tópico Actualizado",
+  "mensaje": "Mensaje actualizado del tópico.",
+  "autor": "usuario@ejemplo.com",
+  "curso": "Curso de Java"
+}
+```
+Respuesta: Detalles del tópico actualizado.
+
+5. Eliminar Tópico
+Método: DELETE /topicos/{id}
+Respuesta: Código de estado 204 No Content.
+6. Login y Autenticación
+Método: POST /login
+Body:
+
+```
+{
+  "correoElectronico": "usuario@ejemplo.com",
+  "contrasena": "tu-contraseña"
+}
+
+```
+Respuesta: Un token JWT que se debe incluir en las siguientes solicitudes.
+
+Casos de Prueba
+1. Crear un Tópico
+
+```
+POST /topicos
+Body:
+{
+  "titulo": "Nuevo Tópico",
+  "mensaje": "Mensaje del tópico",
+  "autor": "usuario@ejemplo.com",
+  "curso": "Curso de Java"
+}
+```
+2. Obtener Tópicos
+
+```
+GET /topicos
+```
+3. Eliminar Tópico
+```
+DELETE /topicos/{id}
+```
+
+Conclusión
+Foro Hub es una herramienta sencilla y potente que combina las mejores prácticas de desarrollo backend con Spring Boot. Proporciona una solución robusta para gestionar tópicos, con autenticación segura y una base de datos bien estructurada. Si tienes alguna pregunta, no dudes en contactar. ¡Espero que disfrutes trabajando con Foro Hub!
