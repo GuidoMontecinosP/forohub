@@ -153,5 +153,6 @@ GET /topicos
 DELETE /topicos/{id}
 ```
 
-Conclusión
+Conclusión:
+
 Foro Hub es una herramienta sencilla y potente que combina las mejores prácticas de desarrollo backend con Spring Boot. Proporciona una solución robusta para gestionar tópicos, con autenticación segura y una base de datos bien estructurada. Si tienes alguna pregunta, no dudes en contactar. ¡Espero que disfrutes trabajando con Foro Hub!
